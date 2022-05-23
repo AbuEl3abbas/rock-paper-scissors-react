@@ -9,7 +9,9 @@ const randomNumber = () => {
 const initialState = {
     user: 0,
     computer: 0,
-    comment: 'Do your move...!!!'
+    comment: 'Do your move...!!!',
+    animation: null,
+    animate: false,
 }
 const gameSlice = createSlice({
     name: 'game',
@@ -24,6 +26,8 @@ const gameSlice = createSlice({
                     if (computerChoice === 2) {
                         return {
                             ...state,
+                            animation: 'green-glow',
+                            animate: true,
                             comment: "rock breaks scissors, you WIN...🔥",
                             user: state.user + 1
                         }
@@ -31,6 +35,8 @@ const gameSlice = createSlice({
                     else if (computerChoice === 1) {
                         return {
                             ...state,
+                            animation: 'red-glow',
+                            animate: true,
                             comment: 'rock loses to paper, you Lose...💩',
                             computer: state.computer + 1
                         }
@@ -38,6 +44,8 @@ const gameSlice = createSlice({
                     else {
                         return {
                             ...state,
+                            animation: 'grey-color',
+                            animate: true,
                             comment: "TIE...😐",
                         }
                     }
@@ -46,6 +54,8 @@ const gameSlice = createSlice({
                         return {
                             ...state,
                             comment: 'paper beats rock, you WIN...🔥',
+                            animate: true,
+                            animation: 'green-color',
                             user: state.user + 1
                         }
                     }
@@ -53,12 +63,16 @@ const gameSlice = createSlice({
                         return {
                             ...state,
                             comment: 'paper loses to scissors, you Lose...💩',
+                            animate: true,
+                            animation: 'red-color',
                             computer: state.computer + 1
                         }
                     }
                     else {
                         return {
                             ...state,
+                            animation: 'grey-color',
+                            animate: true,
                             comment: "TIE...😐",
                         }
                     }
@@ -68,6 +82,8 @@ const gameSlice = createSlice({
                         return {
                             ...state,
                             comment: 'scissors cut paper, you WIN...🔥',
+                            animate: true,
+                            animation: 'green-color',
                             user: state.user + 1
                         }
                     }
@@ -75,12 +91,16 @@ const gameSlice = createSlice({
                         return {
                             ...state,
                             comment: 'scissors loses to rock, you Lose...💩',
+                            animate: true,
+                            animation: 'red-color',
                             computer: state.computer + 1
                         }
                     }
                     else {
                         return {
                             ...state,
+                            animation: 'grey-color',
+                            animate: true,
                             comment: "TIE...😐",
                         }
                     }
